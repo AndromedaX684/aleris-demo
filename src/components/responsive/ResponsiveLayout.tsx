@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { useMediaQuery } from "react-responsive";
-import ChecklistMobileMainPage from "@/pages/ChecklistMobileMainPage";
-import ChecklistDesktopMainPage from "@/pages/ChecklistDesktopMainPage";
+import MobileLayout from "./MobileLayout";
+import DesktopLayout from "./DesktopLayout";
 
 const ResponsiveLayout: React.FC = () => {
-	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const [activeTab, setActiveTab] = useState<"active" | "history" | "analytics">("active");
 
-	return isMobile ? <ChecklistMobileMainPage /> : <ChecklistDesktopMainPage />;
+  const isMobile = useMediaQuery(
+    { query: "(max-width: 768px)" },
+    undefined,
+    (matches) => matches
+  );
+
+  const layout = useMemo(() => {
+    const isSSR = typeof window === "undefined";
+    const showMobile = isSSR ? false : isMobile;
+
+    return showMobile ? (
+      <MobileLayout activeTab={activeTab} setActiveTab={setActiveTab} />
+    ) : (
+      <DesktopLayout />
+    );
+  }, [isMobile, activeTab]);
+
+  return layout;
 };
 
-export default ResponsiveLayout;
+export default React.memo(ResponsiveLayout);

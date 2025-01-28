@@ -24,7 +24,7 @@ export default function SideBar() {
 					<Breadcrumb>
 						<BreadcrumbList>
 							<BreadcrumbItem className="hidden md:block">
-								<BreadcrumbLink href="/home">Dashbord</BreadcrumbLink>
+								<BreadcrumbLink href="/hjem">Dashbord</BreadcrumbLink>
 							</BreadcrumbItem>
 						</BreadcrumbList>
 					</Breadcrumb>

@@ -13,6 +13,7 @@ import {
 	SidebarRail,
 } from "@/components/ui/sidebar";
 import { LogoSection } from "@/components/sidebar/logo-section";
+import { Link } from "react-router";
 
 // This is sample data.
 const data = {
@@ -21,11 +22,11 @@ const data = {
 			title: "Demo Apper",
 			items: [
 				{
-					title: "Sjekkliste App",
+					title: "Sjekklister",
 					url: "/sjekklister",
 				},
 				{
-					title: "Vaksine App",
+					title: "Vaksiner",
 					url: "/vaksiner",
 				},
 			],
@@ -41,7 +42,7 @@ export function HomeSidebar({
 	return (
 		<Sidebar {...props}>
 			<SidebarHeader>
-			<LogoSection/>
+				<LogoSection />
 
 				<SearchForm />
 			</SidebarHeader>
@@ -57,12 +58,12 @@ export function HomeSidebar({
 									return (
 										<SidebarMenuItem key={item.title}>
 											<SidebarMenuButton asChild isActive={isActive}>
-												<a
-													href={item.url}
+												<Link
+													to={item.url}
 													className={isActive ? "text-blue-500 font-bold" : ""}
 												>
 													{item.title}
-												</a>
+												</Link>
 											</SidebarMenuButton>
 										</SidebarMenuItem>
 									);

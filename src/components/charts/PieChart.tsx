@@ -44,7 +44,7 @@ const PieChart: React.FC = () => {
 	};
 
 	return (
-		<div className="flex justify-between items-center w-full h-[280px]">
+		<div className="flex justify-between items-center w-full h-[250px]">
 			<Pie data={data} options={options} />
 		</div>
 	);

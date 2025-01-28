@@ -53,7 +53,7 @@ export default function ChecklistDoneSection() {
 				</div>
 
 				{/* Desktop grid layout */}
-				<div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+				<div className="hidden md:grid md:grid-cols-1 lg:grid-cols-2 gap-4 p-4">
 					{filteredChecklists
 						.filter((c) => c.status === "ferdig")
 						.map((checklist) => (

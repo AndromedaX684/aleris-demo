@@ -27,10 +27,10 @@ export default function ChecklistOverviewSection() {
 			/>
 
 			<div className="flex-1 min-h-0 overflow-auto">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+				<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-4">
 					{filteredChecklists.map((checklist) => (
 						<Link
-							to={`/checklist/${checklist.id}`}
+							to={`/sjekklister/${checklist.id}`}
 							key={checklist.id}
 							className="rounded-lg bg-white p-4 shadow hover:shadow-md transition-all border border-muted"
 						>

@@ -35,9 +35,9 @@ const data = {
 };
 
 export function ChecklistSidebar({
-	...props
+  ...props
 }: React.ComponentProps<typeof Sidebar>) {
-	const location = useLocation(); // Get the current location from react-router
+  const location = useLocation();
 
 	return (
 		<Sidebar {...props}>
