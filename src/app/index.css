@@ -108,3 +108,10 @@
 		/* Show max 2 lines */
 	}
 }
+@layer base {
+  :root {
+    /* ... other variables ... */
+    --accent: 171 100% 41%; /* This is #00D1B2 in HSL */
+    --accent-foreground: 0 0% 100%;
+  }
+}

@@ -16,7 +16,7 @@ export function FilterSection({
 	headerAction,
 }: FilterSectionProps) {
 	return (
-		<div className="sticky top-0 bg-white z-10 px-6 pt-6 pb-4 border-b">
+		<div className="sticky top-0 bg-white z-10 px-6 pt-6 pb-2 border-b rounded-t-lg">
 			<div className="mb-4">
 				{title && (
 					<div className="flex items-center justify-between mb-2">
@@ -37,7 +37,7 @@ export function FilterSection({
 						onClick={() => onClinicChange("All")}
 						className={`shrink-0 rounded-full px-4 py-1.5 text-sm ${
 							selectedClinic === "All"
-								? "bg-blue-500 text-white"
+								? "bg-accent text-white"
 								: "bg-gray-100 text-gray-700 hover:bg-gray-200"
 						}`}
 					>
@@ -49,7 +49,7 @@ export function FilterSection({
 							onClick={() => onClinicChange(clinic)}
 							className={`shrink-0 rounded-full px-4 py-1.5 text-sm ${
 								selectedClinic === clinic
-									? "bg-blue-500 text-white"
+									? "bg-accent text-white"
 									: "bg-gray-100 text-gray-700 hover:bg-gray-200"
 							}`}
 						>

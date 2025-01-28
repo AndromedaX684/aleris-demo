@@ -28,7 +28,7 @@ export default function ChecklistDoneSection() {
 						.map((checklist) => (
 							<div
 								key={checklist.id}
-								className="flex-shrink-0 w-[280px] snap-start rounded-lg bg-white p-4 shadow-sm transition-all hover:shadow-md border border-l-4 border-l-green-500"
+								className="rounded-lg bg-white p-4 shadow hover:shadow-md transition-all border border-muted border-l-4 border-l-green-500"
 							>
 								<div className="flex items-start gap-2">
 									<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0" />
@@ -59,7 +59,7 @@ export default function ChecklistDoneSection() {
 						.map((checklist) => (
 							<div
 								key={checklist.id}
-								className="rounded-lg bg-white p-4 shadow-sm transition-all hover:shadow-md border border-l-4 border-l-green-500"
+								className="rounded-lg bg-white p-4 shadow hover:shadow-md transition-all border border-muted border-l-4 border-l-green-500"
 							>
 								<div className="flex items-start gap-2">
 									<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0" />

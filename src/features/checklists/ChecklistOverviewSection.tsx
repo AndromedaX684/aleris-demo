@@ -13,14 +13,14 @@ export default function ChecklistOverviewSection() {
 			: mockDataLists.filter((c) => c.clinic === selectedClinic);
 
 	return (
-		<div className="flex flex-col h-full bg-white rounded-xl shadow-sm">
+		<div className="flex flex-col h-full bg-white rounded-xl shadow-md">
 			<FilterSection
 				title="Alle Sjekklister"
 				description="Oversikt over alle tilgjengelige sjekklister"
 				selectedClinic={selectedClinic}
 				onClinicChange={setSelectedClinic}
 				headerAction={
-					<button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors text-sm">
+					<button className="bg-accent hover:bg-accent/90 text-white px-4 py-2 rounded-lg transition-colors text-sm">
 						Ny Sjekkliste
 					</button>
 				}
@@ -32,18 +32,16 @@ export default function ChecklistOverviewSection() {
 						<Link
 							to={`/checklist/${checklist.id}`}
 							key={checklist.id}
-							className="rounded-lg bg-white p-4 shadow-sm transition-all hover:shadow-md border-l-2 border-blue-500"
+							className="rounded-lg bg-white p-4 shadow hover:shadow-md transition-all border border-muted"
 						>
 							<div className="flex items-start gap-2">
 								<ClipboardDocumentListIcon className="h-5 w-5 text-blue-500 shrink-0" />
 								<div className="flex-1">
-									<h3 className="text-base font-semibold truncate">
-										{checklist.title}
-									</h3>
+									<h3 className="text-base font-semibold">{checklist.title}</h3>
 									<div className="mt-2 flex items-center justify-between text-sm text-gray-600">
 										<span className="truncate">{checklist.clinic}</span>
 										<span className="rounded px-2 py-1 text-xs bg-blue-100 text-blue-800">
-											{checklist.checkpointAmount} KP
+											{checklist.checkpointAmount} P
 										</span>
 									</div>
 									<div className="mt-2 flex items-center justify-between text-xs">

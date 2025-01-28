@@ -12,6 +12,8 @@ import {
 	SidebarMenuItem,
 	SidebarRail,
 } from "@/components/ui/sidebar";
+import { LogoSection } from "@/components/sidebar/logo-section";
+
 
 // This is sample data.
 const data = {
@@ -40,7 +42,7 @@ export function ChecklistSidebar({
 	return (
 		<Sidebar {...props}>
 			<SidebarHeader>
-				{/*  TODO Add a component for the header here */}
+				<LogoSection/>
 				<SearchForm />
 			</SidebarHeader>
 			<SidebarContent>
