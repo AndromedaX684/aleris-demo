@@ -10,9 +10,9 @@ import ChecklistPageLayout from "./features/checklists/ChecklistPageLayout";
 // pages
 import HomePage from "./pages/HomePage";
 import SideBar from "./features/homePage/HomePageLayout";
-import SjekkListe from "./pages/SjekkListe";
 import Vaksine from "./pages/Vaksine";
 import { ChecklistDetail } from "./features/checklists/ChecklistDetail";
+import ResponsiveLayout from "./components/responsive/ResponsiveLayout";
 
 const root = document.getElementById("root");
 if (!root) {
@@ -33,7 +33,7 @@ ReactDOM.createRoot(root).render(
 				</Route>
 
 				<Route element={<ChecklistPageLayout />}>
-					<Route path="/sjekklister" element={<SjekkListe />} />
+					<Route path="/sjekklister" element={<ResponsiveLayout />} />
 					<Route path="/checklist/:id" element={<ChecklistDetail />} />
 				</Route>
 
