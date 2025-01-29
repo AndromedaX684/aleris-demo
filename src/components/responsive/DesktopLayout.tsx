@@ -5,16 +5,17 @@ import AnalyticsDashboard from "../charts/AnalyticsDashboard";
 
 const DesktopLayout: React.FC = () => {
 	return (
-		<div className="flex flex-col h-screen gap-4">
+		<div className="flex flex-col h-screen p-4">
 			{/* Analytics Section */}
 			<AnalyticsDashboard />
 
 			{/* Checklist Sections */}
-			<div className="flex-1 flex flex-row gap-8 p-4">
-				<div className="flex flex-1 min-h-0 bg-gray-50 shadow rounded-lg">
+			<div className="flex-1 flex flex-row gap-8 p-6">
+				<div className="w-full h-full">
 					<ChecklistOverviewSection />
 				</div>
-				<div className="flex flex-1 min-h-0 bg-gray-50 shadow rounded-lg">
+
+				<div className="w-full h-full">
 					<ChecklistDoneSection />
 				</div>
 			</div>

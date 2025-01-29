@@ -14,8 +14,11 @@ const AnalyticsDashboard: React.FC = () => {
 					<CardHeader>
 						<CardTitle>Completion Rate</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<BarChart />
+					<CardContent className="h-full flex flex-col items-center justify-between">
+						{/* ✅ Chart Container - Keeps Everything Inside */}
+						<div className="w-full h-[180px] flex items-center justify-center">
+							<BarChart />
+						</div>
 					</CardContent>
 				</Card>
 
@@ -23,8 +26,11 @@ const AnalyticsDashboard: React.FC = () => {
 					<CardHeader>
 						<CardTitle>Pending Tasks</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<LineChart />
+					<CardContent className="h-full flex flex-col items-center justify-between">
+						{/* ✅ Chart Container - Keeps Everything Inside */}
+						<div className="w-full h-[180px] flex items-center justify-center">
+							<LineChart />{" "}
+						</div>
 					</CardContent>
 				</Card>
 
