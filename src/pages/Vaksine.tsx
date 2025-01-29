@@ -231,7 +231,7 @@ export default function VaccineDashboard() {
 			{/* Right: Vaccine Details & Chat */}
 			<div className="w-2/3 flex flex-col h-full border-l">
 				{/* ✅ Notes Section (Always Visible at Top) */}
-				<div className="h-1/4 overflow-auto p-4 relative">
+				<div className="h-1/2 overflow-auto p-4 relative">
 					{/* ✅ Edit Button (Top Right Corner) */}
 					<button className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 p-2">
 						<Pencil className="h-5 w-5" />
@@ -252,7 +252,7 @@ export default function VaccineDashboard() {
 
 				{/* ✅ Chat Window (Hidden by Default, Expands in Middle Section) */}
 				{chatMessages.length > 0 && (
-					<div className="flex flex-col flex-grow mt-auto max-h-[300px]">
+					<div className="flex flex-col flex-grow min-h-[200px] max-h-[40vh]">
 						{/* ✅ Info Bar (Always at the Top) */}
 						<div className="flex items-center justify-between px-4 py-2 border-b border-t rounded-t-2xl bg-white">
 							<h2 className="text-lg font-semibold">Snakker med AKI</h2>
@@ -287,7 +287,7 @@ export default function VaccineDashboard() {
 				)}
 
 				{/* ✅ Chat Input Box (Always at the Bottom) */}
-				<div className="mt-auto pb-16">
+				<div className="flex flex-col mt-auto pb-16">
 					<div className="border-t">
 						<CardHeader>
 							<CardTitle>
