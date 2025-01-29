@@ -1,6 +1,13 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import {
+	Chart as ChartJS,
+	ArcElement,
+	Tooltip,
+	Legend,
+	Title,
+	ChartOptions,
+} from "chart.js";
 
 // Register components for Chart.js
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
@@ -27,24 +34,26 @@ const PieChart: React.FC = () => {
 		],
 	};
 
-	const options = {
+	const options: ChartOptions<"pie"> = {
 		responsive: true,
+		maintainAspectRatio: false,
+		layout: { padding: 0 },
 		plugins: {
 			legend: {
-				position: "right" as const,
+				position: "bottom" as const, // ✅ Explicitly cast to avoid TS error
+				align: "center",
 				labels: {
-					boxWidth: 12, // Smaller legend box
-					padding: 10, // Space around legend items
+					boxWidth: 8,
+					padding: 5,
+					font: { size: 10 },
 				},
 			},
-			title: {
-				display: false,
-			},
+			title: { display: false },
 		},
 	};
 
 	return (
-		<div className="flex justify-between items-center w-full h-[250px]">
+		<div className="h-[200px] w-full flex items-center justify-center">
 			<Pie data={data} options={options} />
 		</div>
 	);

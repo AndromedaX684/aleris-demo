@@ -1,13 +1,15 @@
+import NavCards from "@/components/homepage/NavCards";
+
 export default function HomePage() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800">
-			<h1 className="text-4xl font-bold mb-4">Demonstrasjon av Apper</h1>
-			<p className="text-lg mb-8">
-				Dette er en demo for a vise frem app ideer for Aleris{" "}
-			</p>
-			<button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-				Get Started
-			</button>
+		<div className="flex flex-col items-center min-h-screen mt-36">
+			<div className="text-center mb-12">
+				<h1 className="text-4xl font-bold mb-2">Demonstrasjon av Apper</h1>
+				<p className="text-lg text-gray-600">
+					Dette er en demo for å vise frem app-ideer for Aleris
+				</p>
+			</div>
+			<NavCards />
 		</div>
 	);
 }
