@@ -36,7 +36,7 @@ export default function VaccinePageLayout() {
 					</Breadcrumb>
 				</header>
 				{/* Main Content Area for Nested Routes */}
-				<main className="flex-1 p-4">
+				<main>
 					<Outlet />
 				</main>
 			</SidebarInset>

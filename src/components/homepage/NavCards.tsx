@@ -6,7 +6,7 @@ export default function NavCards() {
 	return (
 		<div className="flex flex-wrap gap-6 justify-center">
 			<Link to="/sjekklister">
-				<Card className="w-72 p-6 hover:shadow-lg transition">
+				<Card className="w-72 p-6 shadow-lg transition">
 					<CardHeader>
 						<CardTitle>Sjekklister</CardTitle>
 					</CardHeader>
@@ -20,12 +20,12 @@ export default function NavCards() {
 			</Link>
 
 			<Link to="/vaksiner">
-				<Card className="w-72 p-6 hover:shadow-lg transition">
+				<Card className="w-72 p-6 shadow-lg transition">
 					<CardHeader>
 						<CardTitle>Vaksiner</CardTitle>
 					</CardHeader>
 					<CardContent>
-						<p>Hold oversikt over vaksinasjonsstatus og planlegging.</p>
+						<p>Oppslagsverk for vaksiner og hjelp via Kunstig Intelligense.</p>
 						<Button className="mt-4 w-full">Gå til Vaksiner</Button>
 					</CardContent>
 				</Card>
