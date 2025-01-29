@@ -18,13 +18,43 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+	SIDEBAR_COOKIE_NAME,
+	SIDEBAR_COOKIE_MAX_AGE,
+	SIDEBAR_WIDTH,
+	SIDEBAR_WIDTH_MOBILE,
+	SIDEBAR_WIDTH_ICON,
+	SIDEBAR_KEYBOARD_SHORTCUT,
+} from "./sidebarConstants"; // Ensure this import is correct
 
-const SIDEBAR_COOKIE_NAME = "sidebar:state";
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
+// ... (rest of your component code)
+
+export {
+	Sidebar,
+	SidebarContent,
+	SidebarFooter,
+	SidebarGroup,
+	SidebarGroupAction,
+	SidebarGroupContent,
+	SidebarGroupLabel,
+	SidebarHeader,
+	SidebarInput,
+	SidebarInset,
+	SidebarMenu,
+	SidebarMenuAction,
+	SidebarMenuBadge,
+	SidebarMenuButton,
+	SidebarMenuItem,
+	SidebarMenuSkeleton,
+	SidebarMenuSub,
+	SidebarMenuSubButton,
+	SidebarMenuSubItem,
+	SidebarProvider,
+	SidebarRail,
+	SidebarSeparator,
+	SidebarTrigger,
+	useSidebar,
+};
 
 type SidebarContext = {
 	state: "expanded" | "collapsed";
@@ -734,30 +764,3 @@ const SidebarMenuSubButton = React.forwardRef<
 	);
 });
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton";
-
-export {
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupAction,
-	SidebarGroupContent,
-	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarInput,
-	SidebarInset,
-	SidebarMenu,
-	SidebarMenuAction,
-	SidebarMenuBadge,
-	SidebarMenuButton,
-	SidebarMenuItem,
-	SidebarMenuSkeleton,
-	SidebarMenuSub,
-	SidebarMenuSubButton,
-	SidebarMenuSubItem,
-	SidebarProvider,
-	SidebarRail,
-	SidebarSeparator,
-	SidebarTrigger,
-	useSidebar,
-};
