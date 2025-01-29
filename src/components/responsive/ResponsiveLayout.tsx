@@ -1,29 +1,32 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import MobileLayout from "./MobileLayout";
 import DesktopLayout from "./DesktopLayout";
 
 const ResponsiveLayout: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"active" | "history" | "analytics">("active");
+	const [isClient, setIsClient] = useState(false);
+	const [activeTab, setActiveTab] = useState<
+		"active" | "history" | "analytics"
+	>("active");
 
-  const isMobile = useMediaQuery(
-    { query: "(max-width: 768px)" },
-    undefined,
-    (matches) => matches
-  );
+	const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const layout = useMemo(() => {
-    const isSSR = typeof window === "undefined";
-    const showMobile = isSSR ? false : isMobile;
+	useEffect(() => {
+		// Ensure hydration and avoid mismatches with SSR
+		setIsClient(true);
+	}, []);
 
-    return showMobile ? (
-      <MobileLayout activeTab={activeTab} setActiveTab={setActiveTab} />
-    ) : (
-      <DesktopLayout />
-    );
-  }, [isMobile, activeTab]);
+	const layout = useMemo(() => {
+		if (!isClient) return null; // Prevent mismatches during SSR
 
-  return layout;
+		return isMobile ? (
+			<MobileLayout activeTab={activeTab} setActiveTab={setActiveTab} />
+		) : (
+			<DesktopLayout />
+		);
+	}, [isClient, isMobile, activeTab]);
+
+	return layout;
 };
 
 export default React.memo(ResponsiveLayout);
