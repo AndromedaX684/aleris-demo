@@ -26,7 +26,7 @@
 		--ring: 222.2 84% 4.9%;
 		--radius: 0.5rem;
 
-		--sidebar-background: 0 0% 98%;
+		--sidebar-background: 0 0% 100%;
 		--sidebar-foreground: 240 5.3% 26.1%;
 		--sidebar-primary: 240 5.9% 10%;
 		--sidebar-primary-foreground: 0 0% 98%;
@@ -68,7 +68,8 @@
 	}
 
 	input[type="checkbox"] {
-		accent-color: #3b82f6; /* Match your blue color */
+		accent-color: #3b82f6;
+		/* Match your blue color */
 	}
 
 	/* Global Styles */
@@ -108,10 +109,12 @@
 		/* Show max 2 lines */
 	}
 }
+
 @layer base {
-  :root {
-    /* ... other variables ... */
-    --accent: 171 100% 41%; /* This is #00D1B2 in HSL */
-    --accent-foreground: 0 0% 100%;
-  }
+	:root {
+		/* ... other variables ... */
+		--accent: 171 100% 41%;
+		/* This is #00D1B2 in HSL */
+		--accent-foreground: 0 0% 100%;
+	}
 }

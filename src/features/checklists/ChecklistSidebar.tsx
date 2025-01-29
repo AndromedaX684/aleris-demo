@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/sidebar";
 import { LogoSection } from "@/components/sidebar/logo-section";
 
-
 // This is sample data.
 const data = {
 	navMain: [
@@ -35,14 +34,14 @@ const data = {
 };
 
 export function ChecklistSidebar({
-  ...props
+	...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const location = useLocation();
+	const location = useLocation();
 
 	return (
 		<Sidebar {...props}>
 			<SidebarHeader>
-				<LogoSection/>
+				<LogoSection />
 				<SearchForm />
 			</SidebarHeader>
 			<SidebarContent>

@@ -178,8 +178,10 @@ export default function VaccineDashboard() {
 	}, [chatMessages]); // Runs every time chatMessages update
 
 	// Filter vaccines based on search input
-	const filteredVaccines = mockVaccines.filter((vaccine) =>
-		vaccine.name.toLowerCase().includes(search.toLowerCase())
+	const filteredVaccines = mockVaccines.filter(
+		(vaccine) =>
+			vaccine.name.toLowerCase().includes(search.toLowerCase()) ||
+			vaccine.manufacturer.toLowerCase().includes(search.toLowerCase())
 	);
 
 	return (
@@ -188,12 +190,13 @@ export default function VaccineDashboard() {
 			<div className="w-1/3 flex flex-col gap-4 mb-10">
 				<div className="pt-4 pl-4 pr-4">
 					<Input
-						placeholder="Search vaccines..."
+						placeholder="Søk på vaksiner..."
 						className="w-full"
 						value={search}
 						onChange={(e) => setSearch(e.target.value)}
 					/>
 				</div>
+
 				<ScrollArea className="flex-1 pb-10">
 					<div className="grid gap-4 p-4">
 						{filteredVaccines.map((vaccine) => (
@@ -204,11 +207,9 @@ export default function VaccineDashboard() {
 							>
 								<CardHeader>
 									<CardTitle>{vaccine.name}</CardTitle>
+									<p className="text-2xl text-accent">{vaccine.manufacturer}</p>
 								</CardHeader>
 								<CardContent>
-									<p className="text-sm text-gray-500">
-										{vaccine.manufacturer}
-									</p>
 									<p className="text-sm">
 										<strong>Dose:</strong> {vaccine.dose}
 									</p>
@@ -218,7 +219,7 @@ export default function VaccineDashboard() {
 									<p className="text-sm">
 										<strong>Duration:</strong> {vaccine.duration}
 									</p>
-									<p className="text-green-600 font-semibold mt-2">
+									<p className="text-accent font-semibold mt-2">
 										{vaccine.price}
 									</p>
 								</CardContent>
@@ -246,7 +247,7 @@ export default function VaccineDashboard() {
 							</p>
 						</div>
 					) : (
-						<p className="text-gray-500">Select a vaccine to see details</p>
+						<p className="text-gray-500">Velg en vaksine for å se notater</p>
 					)}
 				</div>
 
