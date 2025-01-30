@@ -60,7 +60,7 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 			<div className="p-4 sticky top-0 bg-white z-10 shadow-md">
 				<Input
 					placeholder="Søk på vaksiner..."
-					className="w-full"
+					className="w-full text-[16px]"
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 				/>
@@ -185,7 +185,7 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 					<div className="flex gap-2">
 						<Input
 							placeholder="Hva kan jeg hjelpe til med?"
-							className="flex-1"
+							className="flex-1 text-[16px]"
 							value={message}
 							onChange={(e) => setMessage(e.target.value)}
 							onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
