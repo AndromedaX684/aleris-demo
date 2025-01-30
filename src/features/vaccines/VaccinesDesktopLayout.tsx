@@ -68,8 +68,8 @@ const VaccineDesktopLayout: React.FC<VaccineLayoutProps> = ({
 					/>
 				</div>
 
-				<ScrollArea className="flex-1 mb-16">
-					<div className="grid gap-4 p-4">
+				<ScrollArea className="flex-1 mb-10">
+					<div className="grid gap-4 px-4 mb-10">
 						{vaccines.map((vaccine) => (
 							<Card
 								key={vaccine.id}
@@ -103,7 +103,7 @@ const VaccineDesktopLayout: React.FC<VaccineLayoutProps> = ({
 			{/* ✅ Right: Vaccine Details & Chat */}
 			<div className="w-full md:w-2/3 flex flex-col p-4 h-full">
 				{/* ✅ Vaccine Details Section */}
-				<div className="flex-1 overflow-auto relative p-4 border rounded-lg bg-white shadow">
+				<div className="flex-1 overflow-auto relative p-4 border rounded-lg bg-white shadow mb-4">
 					{selectedVaccine ? (
 						<>
 							{/* ✅ Edit Button (Only when there is a note) */}
@@ -166,7 +166,7 @@ const VaccineDesktopLayout: React.FC<VaccineLayoutProps> = ({
 				)}
 
 				{/* ✅ Sticky Chat Input (Always at Bottom) */}
-				<div className="sticky bottom-0 left-0 w-full bg-white p-4 pb-6 shadow-md border-t">
+				<div className="sticky bottom-0 left-0 w-full bg-white p-4 pb-6 shadow-md border">
 					<div className="text-sm text-gray-500 mb-2">
 						Snakk med AKI{" "}
 						<span className="text-xs">(Aleris Kunstig Intelligens)</span>

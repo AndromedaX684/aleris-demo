@@ -1,8 +1,9 @@
+import { useEffect, useRef } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, X, Pencil } from "lucide-react";
 
 type Vaccine = {
 	id: number;
@@ -26,7 +27,9 @@ type VaccineLayoutProps = {
 	message: string;
 	setMessage: (message: string) => void;
 	handleSendMessage: () => void;
-	chatMessages: { role: "user" | "AI"; text: string }[];
+	chatMessages: any[];
+	chatVisible: boolean;
+	setChatVisible: (visible: boolean) => void;
 };
 
 const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
@@ -39,11 +42,22 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 	setMessage,
 	handleSendMessage,
 	chatMessages,
+	chatVisible,
+	setChatVisible,
 }) => {
+	const chatRef = useRef<HTMLDivElement>(null);
+
+	// ✅ Auto-scroll to the latest message
+	useEffect(() => {
+		if (chatRef.current) {
+			chatRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+		}
+	}, [chatMessages]);
+
 	return (
 		<div className="flex flex-col h-screen">
 			{/* 🔍 Search Bar */}
-			<div className="p-4">
+			<div className="p-4 sticky top-0 bg-white z-10 shadow-md">
 				<Input
 					placeholder="Søk på vaksiner..."
 					className="w-full"
@@ -52,10 +66,10 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 				/>
 			</div>
 
-			{/* 📌 Scrollable Content Area */}
-			<div className="flex-1 overflow-hidden relative">
+			{/* ✅ Main Content (Scrollable Vaccine List & Chat Overlay) */}
+			<div className="flex-1 relative overflow-hidden">
 				<ScrollArea className="h-full">
-					<div className="p-4 space-y-4">
+					<div className="px-4 pt-4 pb-44 space-y-4">
 						{/* ✅ Vaccine Details OR Vaccine List */}
 						{selectedVaccine ? (
 							<>
@@ -81,6 +95,12 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 											{selectedVaccine.notes}
 										</p>
 									</CardContent>
+									<button
+										onClick={() => console.log("Edit clicked")} // Replace with actual edit function
+										className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-300 transition"
+									>
+										<Pencil className="w-5 h-5" />
+									</button>
 								</Card>
 							</>
 						) : (
@@ -119,45 +139,61 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 					</div>
 				</ScrollArea>
 
-				{/* ✅ Chat Window (Floating Over Vaccine Cards) */}
-				{chatMessages.length > 0 && (
-					<div className="absolute bottom-16 left-0 w-full p-4 z-10 bg-white shadow-lg rounded-t-lg">
-						<h2 className="text-lg font-semibold text-gray-700 mb-2">
-							Chat med AKI
-						</h2>
-						<div className="space-y-2 max-h-[200px] overflow-y-auto">
-							{chatMessages.map((msg, index) => (
-								<div
-									key={index}
-									className={`p-3 rounded-lg max-w-[80%] ${
-										msg.role === "user"
-											? "ml-auto bg-blue-500 text-white"
-											: "bg-gray-100"
-									}`}
-								>
-									{msg.text}
-								</div>
-							))}
+				{/* ✅ Floating Chat Window (Above Vaccine List) */}
+				{chatVisible && (
+					<div className="fixed bottom-20 left-0 w-full max-h-[50vh] min-h-[300px] bg-white shadow-md rounded-t-2xl border overflow-y-auto">
+						{/* ✅ Chat Header */}
+						<div className="flex justify-between px-4 py-4 bg-white border-b sticky top-0 z-10">
+							<h2 className="text-sm font-semibold">Snakk med AKI</h2>
+							<button
+								onClick={() => setChatVisible(false)}
+								className="text-gray-500 hover:text-gray-700"
+							>
+								<X className="h-5 w-5" />
+							</button>
 						</div>
+
+						{/* ✅ Chat Messages (Scrollable) */}
+						<ScrollArea className="p-4 flex-1 overflow-y-auto">
+							<div className="space-y-8">
+								{chatMessages.map((msg, index) => (
+									<div
+										key={index}
+										className={`p-3 rounded-lg text-sm max-w-[80%] ${
+											msg.role === "user"
+												? "ml-auto bg-accent text-white"
+												: "bg-gray-100"
+										}`}
+									>
+										{msg.text}
+									</div>
+								))}
+								{/* ✅ Invisible div at the bottom to force scrolling */}
+								<div ref={chatRef} />
+							</div>
+						</ScrollArea>
 					</div>
 				)}
-			</div>
 
-			{/* ✅ Sticky Chat Input (Always at Bottom) */}
-			<div className="sticky bottom-0 left-0 w-full bg-white p-4 shadow-md">
-				<div className="text-sm text-gray-500 mb-2">
-					Snakk med AKI{" "}
-					<span className="text-xs">(Aleris Kunstig Intelligens)</span>
-				</div>
-				<div className="flex gap-2">
-					<Input
-						placeholder="Hva kan jeg hjelpe til med?"
-						className="flex-1"
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
-						onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-					/>
-					<Button onClick={handleSendMessage}>Send</Button>
+				{/* ✅ Sticky Chat Input (Always at Bottom) */}
+				<div className="fixed bottom-0 left-0 w-full bg-white p-4 shadow-md border">
+					<div className="text-sm text-gray-500 mb-2">
+						Snakk med AKI{" "}
+						<span className="text-xs">(Aleris Kunstig Intelligens)</span>
+					</div>
+
+					<div className="flex gap-2">
+						<Input
+							placeholder="Hva kan jeg hjelpe til med?"
+							className="flex-1"
+							value={message}
+							onChange={(e) => setMessage(e.target.value)}
+							onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+						/>
+						<Button variant={"accent"} onClick={handleSendMessage}>
+							Send
+						</Button>
+					</div>
 				</div>
 			</div>
 		</div>
