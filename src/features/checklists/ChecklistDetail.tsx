@@ -102,7 +102,7 @@ export function ChecklistDetail() {
 	}
 
 	return (
-		<div className="p-4 flex flex-col min-h-screen">
+		<div className="p-4 flex flex-col min-h-screen pb-[env(safe-area-inset-bottom)]">
 			<button
 				onClick={() => navigate(-1)}
 				className="mb-6 flex items-center gap-2 text-accent hover:text-accent-600"
