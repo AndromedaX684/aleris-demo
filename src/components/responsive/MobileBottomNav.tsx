@@ -23,9 +23,9 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 }) => {
 	// Array of buttons with their properties
 	const buttons: NavButton[] = [
-		{ icon: <FiClipboard size={22} />, label: "Active", tab: "active" },
-		{ icon: <FiCheckCircle size={22} />, label: "History", tab: "history" },
-		{ icon: <FiBarChart size={22} />, label: "Analytics", tab: "analytics" },
+		{ icon: <FiClipboard size={22} />, label: "Lister", tab: "active" },
+		{ icon: <FiCheckCircle size={22} />, label: "Log", tab: "history" },
+		{ icon: <FiBarChart size={22} />, label: "Analyser", tab: "analytics" },
 	];
 
 	return (

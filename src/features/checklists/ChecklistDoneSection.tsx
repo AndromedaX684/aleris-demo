@@ -30,7 +30,7 @@ export default function ChecklistDoneSection() {
 							.map((checklist) => (
 								<Card
 									key={checklist.id}
-									className="border-l-4 border-l-green-500 hover:shadow-lg transition-all"
+									className="border-l-4 border-l-green-500 hover:shadow-lg transition-all min-w-[200px]"
 								>
 									<CardHeader className="flex items-start gap-2">
 										<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0" />

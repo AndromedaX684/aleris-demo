@@ -9,87 +9,87 @@ export interface Checklist {
 export const mockDataLists: Checklist[] = [
   {
     id: "1",
-    title: "Operating Room Setup",
+    title: "Oppsett av operasjonsrom",
     clinic: "Oslo",
     type: "Operasjonssalen",
-    checkpointAmount: 15
+    checkpointAmount: 15,
   },
   {
     id: "2",
-    title: "Emergency Cart Check",
+    title: "Sjekk av akuttmedisinsk vogn",
     clinic: "Trondheim",
     type: "Akuttvogn",
-    checkpointAmount: 8
+    checkpointAmount: 8,
   },
   {
     id: "3",
-    title: "Sterilization Procedure",
+    title: "Steriliseringsprosedyre",
     clinic: "Trondheim",
     type: "Sterilisering",
-    checkpointAmount: 12
+    checkpointAmount: 12,
   },
   {
     id: "4",
-    title: "Patient Admission Process",
+    title: "Pasientinntaksprosess",
     clinic: "Oslo",
     type: "Pasientopptak",
-    checkpointAmount: 10
+    checkpointAmount: 10,
   },
   {
     id: "5",
-    title: "Pharmacy Inventory Audit",
+    title: "Gjennomgang av apoteklager",
     clinic: "Bergen",
     type: "Apotek",
-    checkpointAmount: 20
+    checkpointAmount: 20,
   },
   {
     id: "6",
-    title: "Safety Compliance Checklist",
+    title: "Sikkerhetssamsvarssjekkliste",
     clinic: "Oslo",
     type: "Sikkerhet",
-    checkpointAmount: 14
+    checkpointAmount: 14,
   },
   {
     id: "7",
-    title: "Medical Equipment Maintenance",
+    title: "Vedlikehold av medisinsk utstyr",
     clinic: "Trondheim",
     type: "Utstyr",
-    checkpointAmount: 18
+    checkpointAmount: 18,
   },
   {
     id: "8",
-    title: "Discharge Protocol Review",
+    title: "Gjennomgang av utskrivningsprotokoll",
     clinic: "Bergen",
     type: "Utskrivelse",
-    checkpointAmount: 9
+    checkpointAmount: 9,
   },
   {
     id: "9",
-    title: "Ambulance Inspection",
+    title: "Ambulanseinspeksjon",
     clinic: "Oslo",
     type: "Ambulanse",
-    checkpointAmount: 7
+    checkpointAmount: 7,
   },
   {
     id: "10",
-    title: "Ward Cleanliness Audit",
+    title: "Hygieneaudit på sengepost",
     clinic: "Trondheim",
     type: "Hygiene",
-    checkpointAmount: 11
+    checkpointAmount: 11,
   },
   {
     id: "11",
-    title: "Emergency Preparedness Drill",
+    title: "Øvelse i beredskapsplan",
     clinic: "Bergen",
     type: "Beredskap",
-    checkpointAmount: 13
+    checkpointAmount: 13,
   },
   {
     id: "12",
-    title: "Infection Control Checklist",
+    title: "Sjekkliste for infeksjonskontroll",
     clinic: "Trondheim",
     type: "Infeksjonskontroll",
-    checkpointAmount: 16
+    checkpointAmount: 16,
   },
 ];
 

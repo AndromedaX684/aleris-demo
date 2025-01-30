@@ -14,7 +14,6 @@ const Avatar: React.FC<AvatarProps> = ({
 	alt = "Avatar",
 	size = "md",
 	className,
-	fallbackText = "A",
 }) => {
 	const sizes = {
 		sm: "w-8 h-8 text-sm",
@@ -30,19 +29,15 @@ const Avatar: React.FC<AvatarProps> = ({
 				className
 			)}
 		>
-			{src ? (
-				<img
-					src={src}
-					alt={alt}
-					className="object-cover w-full h-full"
-					onError={(e) => {
-						const target = e.target as HTMLImageElement;
-						target.style.display = "none"; // Hide broken image
-					}}
-				/>
-			) : (
-				<span className="font-medium">{fallbackText}</span>
-			)}
+			<img
+				src={src || "https://avatar.iran.liara.run/public/14"} // ✅ Default URL if src is empty
+				alt={alt}
+				className="object-cover w-full h-full"
+				onError={(e) => {
+					const target = e.target as HTMLImageElement;
+					target.src = "https://avatar.iran.liara.run/public/14"; // ✅ Fallback if image fails
+				}}
+			/>
 		</div>
 	);
 };
