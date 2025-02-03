@@ -65,7 +65,7 @@ const ChecklistLayout = () => {
 						/>
 					</div>
 				</header>
-				<main className="flex-1 flex flex-col min-h-0 overflow-auto">
+				<main className="flex-1 flex flex-col overflow-auto">
 					<Outlet />
 				</main>
 			</SidebarInset>

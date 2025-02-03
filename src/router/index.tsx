@@ -12,48 +12,48 @@ import ChecklistLayout from "@/layouts/ChecklistLayout";
 import VaccineLayout from "@/layouts/VaccineLayout";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      {
-        index: true,
-        element: <App />,
-      },
-      {
-        path: "hjem",
-        element: <HomeLayout />,
-        children: [
-          {
-            index: true,
-            element: <HomePage />,
-          },
-        ],
-      },
-      {
-        path: "sjekklister",
-        element: <ChecklistLayout />,
-        children: [
-          {
-            index: true,
-            element: <ResponsiveLayout />,
-          },
-          {
-            path: ":id",
-            element: <ChecklistDetail />,
-          },
-        ],
-      },
-      {
-        path: "vaksiner",
-        element: <VaccineLayout />,
-        children: [
-          {
-            index: true,
-            element: <Vaksine />,
-          },
-        ],
-      },
-    ],
-  },
+	{
+		path: "/",
+		element: <RootLayout />,
+		children: [
+			{
+				index: true,
+				element: <App />,
+			},
+			{
+				path: "hjem",
+				element: <HomeLayout />,
+				children: [
+					{
+						index: true,
+						element: <HomePage />,
+					},
+				],
+			},
+			{
+				path: "sjekklister",
+				element: <ChecklistLayout />,
+				children: [
+					{
+						index: true,
+						element: <ResponsiveLayout />,
+					},
+				],
+			},
+			{
+				path: "sjekklister/:id",
+				element: <ChecklistDetail />,
+			},
+			{
+				path: "vaksiner",
+				element: <VaccineLayout />,
+				children: [
+					{
+						index: true,
+						element: <Vaksine />,
+					},
+				],
+			},
+		],
+	},
 ]);

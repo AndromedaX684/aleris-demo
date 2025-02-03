@@ -8,7 +8,7 @@ export function LogoSection() {
 				<img
 					src="https://logosandtypes.com/wp-content/uploads/2020/06/aleris.svg"
 					alt="Aleris Logo"
-					className="h-8 w-auto"
+					className="h-8 w-auto mr-2"
 				/>
 				<h1 className="text-lg font-semibold">Aleris Demo</h1>
 			</Link>

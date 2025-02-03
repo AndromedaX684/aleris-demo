@@ -11,7 +11,7 @@ const DesktopLayout: React.FC = () => {
 			<AnalyticsDashboard />
 
 			{/* Active Checklist */}
-			<div className="w-full p-6">
+			<div className="w-full pt-6 pl-6 pr-6">
 				<ChecklistActive />
 			</div>
 

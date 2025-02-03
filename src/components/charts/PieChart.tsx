@@ -14,7 +14,7 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart: React.FC = () => {
 	const data = {
-		labels: ["Oslo", "Trondhei,", "Bergen"],
+		labels: ["Oslo", "Trondheim", "Bergen"],
 		datasets: [
 			{
 				label: "Category Breakdown",

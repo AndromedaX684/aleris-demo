@@ -26,6 +26,7 @@ import {
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
+import Avatar from "@/components/ui/avatar";
 
 export function ChecklistDetail() {
 	const { id } = useParams<{ id: string }>();
@@ -102,26 +103,29 @@ export function ChecklistDetail() {
 	}
 
 	return (
-		<div className="p-4 flex flex-col min-h-screen pb-[env(safe-area-inset-bottom)]">
-			<button
-				onClick={() => navigate(-1)}
-				className="mb-6 flex items-center gap-2 text-accent hover:text-accent-600"
-			>
-				<ArrowLeftIcon className="h-5 w-5" />
-				<span>Tilbake til oversikt</span>
-			</button>
-
-			{/* ✅ Header Section */}
-			<Card className="sticky top-0 z-10 bg-white shadow-md border-b mb-6">
-				<CardHeader className="flex items-center justify-between">
-					<CardTitle className="text-2xl">{checklist.title}</CardTitle>
-					<p className="text-accent text-lg">
-						Gjennomføres av Roger den 12.01.2025 kl.13:37
-					</p>
+		<div className="min-h-screen bg-gray-50 pb-24 pt-48 px-4">
+			{/* ✅ Fixed Header */}
+			<Card className="fixed top-0 left-0 right-0 z-20 bg-white/30 backdrop-blur-md shadow-md border-b rounded-none">
+				<CardHeader className="flex items-center justify-center py-3 relative">
+					<button
+						onClick={() => navigate(-1)}
+						className="absolute left-4 text-accent hover:text-accent-600"
+					>
+						<ArrowLeftIcon className="h-5 w-5" />
+					</button>
+					<div className="text-center">
+						<CardTitle className="text-xl font-semibold">
+							{checklist.title}
+						</CardTitle>
+						<div className="flex items-center justify-center gap-2 text-sm text-gray-500">
+							<span>Gjennomføres av Dr. John Doe</span>
+							<Avatar className="h-8 w-8" />
+						</div>
+						<p className="text-sm text-gray-500">12.01.2025 kl.13:37</p>
+					</div>
 				</CardHeader>
-
 				<CardContent>
-					<div className="mb-6">
+					<div>
 						{/* ✅ Progress Bar Header */}
 						<div className="flex items-center justify-between mb-2">
 							<span className="text-sm font-medium text-accent">
@@ -160,105 +164,107 @@ export function ChecklistDetail() {
 				</CardContent>
 			</Card>
 
-			{/* ✅ Checklist Checkpoints */}
-			<Card>
-				<CardHeader>
-					<CardTitle>Kontrollpunkt</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<div className="space-y-2">
-						{checklist.checkpoints?.map((checkpoint, index) => (
-							<div
-								key={index}
-								onClick={() => toggleCheckpoint(index)}
-								className={`p-3 border rounded-lg cursor-pointer transition-all flex items-center justify-between ${
-									completedCheckpoints.has(index)
-										? "bg-green-50 border-l-4 border-green-500"
-										: "hover:bg-gray-50"
-								}`}
-							>
-								<div className="flex items-center gap-4">
-									{/* ✅ Show Checkmark for Completed Items */}
-									{completedCheckpoints.has(index) ? (
-										<CheckCircleIcon className="h-6 w-6 text-green-500" />
-									) : (
-										<CheckCircleIcon className="h-6 w-6 text-gray-300" />
-									)}
-
-									<div className="flex-1">
-										<p
-											className={`text-gray-800 ${
-												completedCheckpoints.has(index)
-													? "line-through text-gray-500"
-													: ""
-											}`}
-										>
-											{checkpoint.title}
-										</p>
-										{checkpoint.notes && (
-											<p className="text-sm text-gray-500 mt-1">
-												{checkpoint.notes}
-											</p>
+			{/* ✅ Scrollable Content */}
+			<div className="overflow-auto">
+				<Card>
+					<CardHeader className="border-b">
+						<CardTitle className="text-lg font-medium">
+							Kontrollpunkter
+						</CardTitle>
+					</CardHeader>
+					<CardContent className="p-4">
+						<div className="space-y-2">
+							{checklist.checkpoints?.map((checkpoint, index) => (
+								<div
+									key={index}
+									onClick={() => toggleCheckpoint(index)}
+									className={`p-3 border rounded-lg cursor-pointer transition-all flex items-center justify-between ${
+										completedCheckpoints.has(index)
+											? "bg-green-50 border-l-4 border-green-500"
+											: "hover:bg-gray-50"
+									}`}
+								>
+									<div className="flex items-center gap-4">
+										{/* ✅ Show Checkmark for Completed Items */}
+										{completedCheckpoints.has(index) ? (
+											<CheckCircleIcon className="h-6 w-6 text-green-500" />
+										) : (
+											<CheckCircleIcon className="h-6 w-6 text-gray-300" />
 										)}
+
+										<div className="flex-1">
+											<p
+												className={`text-gray-800 ${
+													completedCheckpoints.has(index)
+														? "line-through text-gray-500"
+														: ""
+												}`}
+											>
+												{checkpoint.title}
+											</p>
+											{checkpoint.notes && (
+												<p className="text-sm text-gray-500 mt-1">
+													{checkpoint.notes}
+												</p>
+											)}
+										</div>
+									</div>
+									<div className="flex items-center gap-2">
+										<span className="text-xs text-gray-400">
+											{checkpoint.description}
+										</span>
+										{/* ✅ Display Input Type Icon */}
+										{getCheckpointIcon(checkpoint.type)}
 									</div>
 								</div>
-								<div className="flex items-center gap-2">
-									<span className="text-xs text-gray-400">
-										{checkpoint.description}
-									</span>
-									{/* ✅ Display Input Type Icon */}
-									{getCheckpointIcon(checkpoint.type)}
-								</div>
-							</div>
-						))}
-					</div>
-				</CardContent>
-			</Card>
-
-			{/* ✅ Fullfør Button (Always Visible) */}
-			<div className="flex-1 bg-white sticky bottom-0 z-10 p-4 border rounded-md mt-4">
-				<div className="flex justify-center ">
-					<AlertDialog>
-						<AlertDialogTrigger asChild>
-							<Button variant="accent" size="lg" className="w-full max-w-md">
-								Fullfør og Send inn Sjekkliste
-							</Button>
-						</AlertDialogTrigger>
-						<AlertDialogContent>
-							<AlertDialogHeader>
-								<AlertDialogTitle>
-									Kontroller at listen er gjennomført!
-								</AlertDialogTitle>
-								<AlertDialogDescription>
-									Her er en oversikt over hva som er gjennomført og av hvem.
-								</AlertDialogDescription>
-								<AlertDialogDescription>
-									Kontrollpunkt: ({completedCheckpoints.size}/
-									{checklist.checkpoints?.length || 0}) |{" "}
-									{Math.round(
-										(completedCheckpoints.size /
-											(checklist.checkpoints?.length || 1)) *
-											100
-									)}
-									%
-								</AlertDialogDescription>
-								<AlertDialogDescription>
-									Utført av: Roger den 12.01.2025 kl.13:42
-								</AlertDialogDescription>
-							</AlertDialogHeader>
-							<AlertDialogFooter>
-								<AlertDialogCancel>Tilbake</AlertDialogCancel>
-								<AlertDialogAction
-									className="bg-accent hover:bg-accent-600"
-									onClick={handleCompleteChecklist}
-								>
-									Signer og Fullfør
-								</AlertDialogAction>
-							</AlertDialogFooter>
-						</AlertDialogContent>
-					</AlertDialog>
-				</div>
+							))}
+						</div>
+					</CardContent>
+				</Card>
 			</div>
+
+			{/* ✅ Fixed Footer Button */}
+			<Card className="fixed bottom-0 left-0 right-0 bg-white/30 backdrop-blur-md border-t p-4 z-20 rounded-none flex justify-center">
+				<AlertDialog>
+					<AlertDialogTrigger asChild>
+						<Button variant="accent" size="lg" className="w-full max-w-md">
+							Fullfør og Send inn Sjekkliste
+						</Button>
+					</AlertDialogTrigger>
+					<AlertDialogContent>
+						<AlertDialogHeader>
+							<AlertDialogTitle>
+								Kontroller at listen er gjennomført!
+							</AlertDialogTitle>
+							<AlertDialogDescription>
+								Her er en oversikt over hva som er gjennomført og av hvem.
+							</AlertDialogDescription>
+							<AlertDialogDescription>
+								Kontrollpunkt: ({completedCheckpoints.size}/
+								{checklist.checkpoints?.length || 0}) |{" "}
+								{Math.round(
+									(completedCheckpoints.size /
+										(checklist.checkpoints?.length || 1)) *
+										100
+								)}
+								%
+							</AlertDialogDescription>
+							<AlertDialogDescription>
+								Utført av: Roger den 12.01.2025 kl.13:42
+							</AlertDialogDescription>
+						</AlertDialogHeader>
+						<AlertDialogFooter className="gap-2">
+							<AlertDialogCancel className="text-sm">Tilbake</AlertDialogCancel>
+							<AlertDialogAction
+								className="bg-accent hover:bg-accent-600"
+								onClick={handleCompleteChecklist}
+							>
+								Signer og Fullfør
+							</AlertDialogAction>
+						</AlertDialogFooter>
+					</AlertDialogContent>
+				</AlertDialog>
+			</Card>
 		</div>
 	);
 }
