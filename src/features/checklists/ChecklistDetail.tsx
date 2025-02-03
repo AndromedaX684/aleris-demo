@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog";
 import Avatar from "@/components/ui/avatar";
+import { HelpCircleIcon } from "lucide-react";
 
 export function ChecklistDetail() {
 	const { id } = useParams<{ id: string }>();
@@ -34,6 +35,8 @@ export function ChecklistDetail() {
 	const [completedCheckpoints, setCompletedCheckpoints] = useState<Set<number>>(
 		new Set()
 	);
+
+	const [helpOpen, setHelpOpen] = useState<number | null>(null);
 
 	const checklist = mockDataDetails.find((c) => c.id === id);
 
@@ -64,26 +67,26 @@ export function ChecklistDetail() {
 	};
 
 	// ✅ Define Icons Based on Checkpoint Type
-	const getCheckpointIcon = (type: string) => {
+	const getCheckpointIcon = (type: string, className = "") => {
 		switch (type) {
 			case "checkmark":
-				return <CheckCircleIcon className="h-6 w-6 text-gray-500" />;
+				return <CheckCircleIcon className={`h-6 w-6 ${className}`} />;
 			case "photo":
-				return <CameraIcon className="h-6 w-6 text-gray-500" />;
+				return <CameraIcon className={`h-6 w-6 ${className}`} />;
 			case "signature":
-				return <SignatureIcon className="h-6 w-6 text-gray-500" />;
+				return <SignatureIcon className={`h-6 w-6 ${className}`} />;
 			case "text":
-				return <FileTextIcon className="h-6 w-6 text-gray-500" />;
+				return <FileTextIcon className={`h-6 w-6 ${className}`} />;
 			case "numeric":
-				return <HashIcon className="h-6 w-6 text-gray-500" />;
+				return <HashIcon className={`h-6 w-6 ${className}`} />;
 			case "date":
-				return <CalendarIcon className="h-6 w-6 text-gray-500" />;
+				return <CalendarIcon className={`h-6 w-6 ${className}`} />;
 			case "voice":
-				return <MicIcon className="h-6 w-6 text-gray-500" />;
+				return <MicIcon className={`h-6 w-6 ${className}`} />;
 			case "barcode":
-				return <BarcodeIcon className="h-6 w-6 text-gray-500" />;
+				return <BarcodeIcon className={`h-6 w-6 ${className}`} />;
 			default:
-				return <CheckCircleIcon className="h-6 w-6 text-gray-500" />;
+				return <CheckCircleIcon className={`h-6 w-6 ${className}`} />;
 		}
 	};
 
@@ -172,50 +175,74 @@ export function ChecklistDetail() {
 							Kontrollpunkter
 						</CardTitle>
 					</CardHeader>
+
 					<CardContent className="p-4">
 						<div className="space-y-2">
 							{checklist.checkpoints?.map((checkpoint, index) => (
 								<div
 									key={index}
-									onClick={() => toggleCheckpoint(index)}
-									className={`p-3 border rounded-lg cursor-pointer transition-all flex items-center justify-between ${
+									onClick={() => {
+										if (helpOpen !== index) toggleCheckpoint(index); // ✅ Only toggle if help is not open
+									}}
+									className={`relative p-3 border rounded-lg cursor-pointer transition-all flex flex-col ${
 										completedCheckpoints.has(index)
 											? "bg-green-50 border-l-4 border-green-500"
 											: "hover:bg-gray-50"
 									}`}
 								>
-									<div className="flex items-center gap-4">
-										{/* ✅ Show Checkmark for Completed Items */}
-										{completedCheckpoints.has(index) ? (
-											<CheckCircleIcon className="h-6 w-6 text-green-500" />
-										) : (
-											<CheckCircleIcon className="h-6 w-6 text-gray-300" />
-										)}
+									{/* ✅ Checkpoint Row */}
+									<div className="flex items-center justify-between">
+										<div className="flex items-center gap-4">
+											{getCheckpointIcon(
+												checkpoint.type,
+												completedCheckpoints.has(index)
+													? "text-green-500"
+													: "text-gray-300"
+											)}
 
-										<div className="flex-1">
-											<p
-												className={`text-gray-800 ${
-													completedCheckpoints.has(index)
-														? "line-through text-gray-500"
-														: ""
-												}`}
-											>
-												{checkpoint.title}
-											</p>
-											{checkpoint.notes && (
-												<p className="text-sm text-gray-500 mt-1">
-													{checkpoint.notes}
+											<div className="flex-1">
+												<p
+													className={`text-gray-800 ${
+														completedCheckpoints.has(index)
+															? "line-through text-gray-300"
+															: ""
+													}`}
+												>
+													{checkpoint.title}
 												</p>
+												{checkpoint.notes && (
+													<p className="text-sm text-gray-400 mt-1">
+														{checkpoint.notes}
+													</p>
+												)}
+											</div>
+										</div>
+
+										{/* ✅ Help Button */}
+										<button
+											onClick={(e) => {
+												e.stopPropagation(); // ✅ Prevent triggering the toggleCheckpoint
+												setHelpOpen(helpOpen === index ? null : index); // Toggle help visibility
+											}}
+											className="text-gray-400 hover:text-gray-600"
+										>
+											<HelpCircleIcon className="h-5 w-5" />
+										</button>
+									</div>
+
+									{/* ✅ Help Section */}
+									{helpOpen === index && (
+										<div className="mt-2 p-3 bg-gray-100 rounded-md text-sm text-gray-700">
+											<p>
+												<strong>Instruksjoner:</strong> Dette er
+												tilleggsinformasjon for å hjelpe deg med dette
+												kontrollpunktet.
+											</p>
+											{checkpoint.description && (
+												<p className="mt-1">{checkpoint.description}</p>
 											)}
 										</div>
-									</div>
-									<div className="flex items-center gap-2">
-										<span className="text-xs text-gray-400">
-											{checkpoint.description}
-										</span>
-										{/* ✅ Display Input Type Icon */}
-										{getCheckpointIcon(checkpoint.type)}
-									</div>
+									)}
 								</div>
 							))}
 						</div>
