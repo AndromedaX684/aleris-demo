@@ -12,7 +12,7 @@ const AnalyticsDashboard: React.FC = () => {
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 				<Card className="h-[280px]">
 					<CardHeader>
-						<CardTitle>Completion Rate</CardTitle>
+						<CardTitle>Gjennomførte Sjekklister</CardTitle>
 					</CardHeader>
 					<CardContent className="h-full flex flex-col items-center justify-between">
 						{/* ✅ Chart Container - Keeps Everything Inside */}
@@ -24,7 +24,7 @@ const AnalyticsDashboard: React.FC = () => {
 
 				<Card className="h-[280px]">
 					<CardHeader>
-						<CardTitle>Pending Tasks</CardTitle>
+						<CardTitle>Avvik</CardTitle>
 					</CardHeader>
 					<CardContent className="h-full flex flex-col items-center justify-between">
 						{/* ✅ Chart Container - Keeps Everything Inside */}
@@ -36,7 +36,7 @@ const AnalyticsDashboard: React.FC = () => {
 
 				<Card className="h-[280px]">
 					<CardHeader>
-						<CardTitle>Category Breakdown</CardTitle>
+						<CardTitle>Per Klinikk</CardTitle>
 					</CardHeader>
 					<CardContent className="h-full flex flex-col items-center justify-between">
 						{/* ✅ Chart Container - Keeps Everything Inside */}

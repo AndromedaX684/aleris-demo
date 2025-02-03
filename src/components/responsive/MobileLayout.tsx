@@ -2,6 +2,7 @@ import React from "react";
 import MobileBottomNav from "./MobileBottomNav";
 import ChecklistOverviewSection from "@/features/checklists/ChecklistOverviewSection";
 import ChecklistDoneSection from "@/features/checklists/ChecklistDoneSection";
+import ChecklistActive from "@/features/checklists/ChecklistActive";
 import AnalyticsDashboard from "../charts/AnalyticsDashboard";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -25,8 +26,9 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="bg-white shadow rounded-lg p-4"
+							className="flex flex-col gap-2 bg-white shadow rounded-lg p-2"
 						>
+							<ChecklistActive />
 							<ChecklistOverviewSection />
 						</motion.div>
 					)}
@@ -36,7 +38,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="bg-white shadow rounded-lg p-4"
+							className="bg-white shadow rounded-lg p-2"
 						>
 							<ChecklistDoneSection />
 						</motion.div>
@@ -47,7 +49,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="bg-white shadow rounded-lg p-4"
+							className="bg-white shadow rounded-lg p-2"
 						>
 							<AnalyticsDashboard />
 						</motion.div>

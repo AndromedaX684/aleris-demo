@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { clinics } from "@/data/mockChecklists";
 
 interface FilterSectionProps {
@@ -33,28 +34,28 @@ export function FilterSection({
 					</div>
 				)}
 				<div className="flex gap-2 overflow-x-auto pb-2">
-					<button
+					<Badge
 						onClick={() => onClinicChange("All")}
-						className={`shrink-0 rounded-full px-4 py-1.5 text-sm ${
+						className={`rounded-full ${
 							selectedClinic === "All"
 								? "bg-accent text-white"
 								: "bg-gray-100 text-gray-700 hover:bg-gray-200"
 						}`}
 					>
 						Alle
-					</button>
+					</Badge>
 					{clinics.map((clinic) => (
-						<button
+						<Badge
 							key={clinic}
 							onClick={() => onClinicChange(clinic)}
-							className={`shrink-0 rounded-full px-4 py-1.5 text-sm ${
+							className={`rounded-full ${
 								selectedClinic === clinic
 									? "bg-accent text-white"
-									: "bg-gray-100 text-gray-700 hover:bg-gray-200"
+									: "bg-gray-100 text-accent-700 hover:bg-gray-200"
 							}`}
 						>
 							{clinic}
-						</button>
+						</Badge>
 					))}
 				</div>
 			</div>

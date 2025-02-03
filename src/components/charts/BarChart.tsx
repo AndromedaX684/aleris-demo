@@ -23,10 +23,10 @@ ChartJS.register(
 const BarChart: React.FC = () => {
 	// Chart Data
 	const data = {
-		labels: ["January", "February", "March", "April"],
+		labels: ["Januar", "Februar", "Mars", "April"],
 		datasets: [
 			{
-				label: "Completed Checklists",
+				label: "Gjennomførte Sjekklister",
 				data: [65, 59, 80, 81],
 				backgroundColor: "rgba(4, 209, 178, 0.6)", // Base Teal
 				borderColor: "rgba(4, 209, 178, 1)",

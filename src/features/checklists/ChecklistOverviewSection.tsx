@@ -34,8 +34,8 @@ export default function ChecklistOverviewSection() {
 						{filteredChecklists.map((checklist) => (
 							<Link to={`/sjekklister/${checklist.id}`} key={checklist.id}>
 								<Card className="hover:shadow-lg transition-all">
-									<CardHeader className="flex items-start gap-2">
-										<ClipboardDocumentListIcon className="h-5 w-5 text-blue-500 shrink-0" />
+									<CardHeader className="flex flex-row items-start gap-2">
+										<ClipboardDocumentListIcon className="h-5 w-5 text-blue-500 shrink-0 mt-2" />
 										<CardTitle className="text-base font-semibold">
 											{checklist.title}
 										</CardTitle>

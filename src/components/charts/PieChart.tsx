@@ -14,11 +14,11 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 const PieChart: React.FC = () => {
 	const data = {
-		labels: ["Equipment", "Operations", "Inventory"],
+		labels: ["Oslo", "Trondhei,", "Bergen"],
 		datasets: [
 			{
 				label: "Category Breakdown",
-				data: [40, 35, 25],
+				data: [40, 15, 20],
 				backgroundColor: [
 					"rgba(4, 209, 178, 0.6)", // Base Teal
 					"rgba(2, 158, 136, 0.6)", // Darker Teal

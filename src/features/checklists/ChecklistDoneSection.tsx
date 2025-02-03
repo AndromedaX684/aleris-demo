@@ -3,6 +3,7 @@ import { mockChecklists } from "@/data/mockChecklists";
 import { FilterSection } from "./FilterSection";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import Avatar from "@/components/ui/avatar";
 
 export default function ChecklistDoneSection() {
 	const [selectedClinic, setSelectedClinic] = useState<string>("All");
@@ -30,7 +31,7 @@ export default function ChecklistDoneSection() {
 							.map((checklist) => (
 								<Card
 									key={checklist.id}
-									className="border-l-4 border-l-green-500 hover:shadow-lg transition-all min-w-[200px]"
+									className="border-l-4 border-l-green-500 hover:shadow-lg transition-all min-w-[220px]"
 								>
 									<CardHeader className="flex items-start gap-2">
 										<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0" />
@@ -65,13 +66,20 @@ export default function ChecklistDoneSection() {
 									key={checklist.id}
 									className="border-l-4 border-l-green-500 hover:shadow-lg transition-all"
 								>
-									<CardHeader className="flex items-start gap-2">
-										<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0" />
+									<CardHeader className="flex flex-row items-start gap-2">
+										<CheckCircleIcon className="h-5 w-5 text-green-500 shrink-0 mt-2" />
 										<CardTitle className="text-base font-semibold">
 											{checklist.title}
 										</CardTitle>
 									</CardHeader>
 									<CardContent>
+										<div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+											<span className="text-gray-500">Gjennomført av:</span>
+											<div className="flex items-center gap-2">
+												<div>{checklist.employee}</div>
+												<Avatar className="h-6 w-6" />
+											</div>
+										</div>
 										<div className="flex items-center justify-between text-sm text-gray-600">
 											<span>{checklist.clinic}</span>
 											<span className="rounded px-2 py-1 text-xs bg-green-100 text-green-800">

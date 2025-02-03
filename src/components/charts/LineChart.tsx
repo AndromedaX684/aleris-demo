@@ -24,11 +24,11 @@ ChartJS.register(
 
 const LineChart: React.FC = () => {
 	const data = {
-		labels: ["January", "February", "March", "April"],
+		labels: ["Januar", "Februar", "Mars", "April"],
 		datasets: [
 			{
-				label: "Pending Tasks",
-				data: [30, 45, 28, 50],
+				label: "Avvik",
+				data: [10, 15, 8, 5],
 				borderColor: "rgba(255, 99, 132, 1)",
 				backgroundColor: "rgba(255, 99, 132, 0.2)",
 				borderWidth: 2,
