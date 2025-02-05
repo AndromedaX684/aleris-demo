@@ -1,9 +1,9 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import BarChart from "@/components/charts/BarChart";
-import LineChart from "@/components/charts/LineChart";
-import PieChart from "@/components/charts/PieChart";
+import BarChart from "./BarChart";
+import PieChart from "./PieChart";
+import LineChart from "./LineChart";
 
 const AnalyticsDashboard: React.FC = () => {
 	return (

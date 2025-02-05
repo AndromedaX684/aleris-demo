@@ -3,7 +3,7 @@ import MobileBottomNav from "./MobileBottomNav";
 import ChecklistOverviewSection from "@/features/checklists/ChecklistOverviewSection";
 import ChecklistDoneSection from "@/features/checklists/ChecklistDoneSection";
 import ChecklistActive from "@/features/checklists/ChecklistActive";
-import AnalyticsDashboard from "../charts/AnalyticsDashboard";
+import AnalyticsDashboard from "@/features/checklists/components/charts/AnalyticsDashboard";
 import { AnimatePresence, motion } from "framer-motion";
 
 // Define the props for MobileLayout

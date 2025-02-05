@@ -1,7 +1,7 @@
 import React from "react";
 import ChecklistOverviewSection from "@/features/checklists/ChecklistOverviewSection";
 import ChecklistDoneSection from "@/features/checklists/ChecklistDoneSection";
-import AnalyticsDashboard from "../charts/AnalyticsDashboard";
+import AnalyticsDashboard from "@/features/checklists/components/charts/AnalyticsDashboard";
 import ChecklistActive from "@/features/checklists/ChecklistActive";
 
 const DesktopLayout: React.FC = () => {
