@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils"; // Utility for conditional class merging
+import { cn } from "@/utils/utils"; // Utility for conditional class merging
 
 interface AvatarProps {
 	src?: string; // URL of the image

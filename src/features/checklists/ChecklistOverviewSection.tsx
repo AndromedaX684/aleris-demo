@@ -44,7 +44,7 @@ export default function ChecklistOverviewSection() {
 										<div className="flex items-center justify-between text-sm text-gray-600">
 											<span className="truncate">{checklist.clinic}</span>
 											<span className="rounded px-2 py-1 text-xs bg-blue-100 text-blue-800">
-												{checklist.checkpointAmount} P
+												{checklist.checkpointAmount} Punkter
 											</span>
 										</div>
 										<div className="mt-2 flex items-center justify-between text-xs">
