@@ -15,7 +15,7 @@ export default function ChecklistOverviewSection() {
 			: mockDataLists.filter((c) => c.clinic === selectedClinic);
 
 	return (
-		<Card className="h-full w-full rounded-lg shadow-lg">
+		<Card className="h-full w-full rounded-lg shadow-md overflow-auto scrollbar-hidden max-h-[calc(100vh-10rem)]">
 			<CardContent className="p-0">
 				<FilterSection
 					title="Alle Sjekklister"
@@ -30,7 +30,7 @@ export default function ChecklistOverviewSection() {
 				/>
 
 				<div className="flex-1 min-h-0 overflow-auto">
-					<div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4 p-4">
+					<div className="flex flex-col gap-4 p-4">
 						{filteredChecklists.map((checklist) => (
 							<Link to={`/sjekklister/${checklist.id}`} key={checklist.id}>
 								<Card className="hover:shadow-lg transition-all">
