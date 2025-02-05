@@ -15,7 +15,7 @@ export default function ChecklistOverviewSection() {
 			: mockDataLists.filter((c) => c.clinic === selectedClinic);
 
 	return (
-		<Card className="h-full w-full rounded-lg shadow-md overflow-auto scrollbar-hidden max-h-[calc(100vh-10rem)]">
+		<Card className="h-full w-full rounded-lg overflow-auto scrollbar-hidden max-h-[calc(100vh-10rem)]">
 			<CardContent className="p-0">
 				<FilterSection
 					title="Alle Sjekklister"

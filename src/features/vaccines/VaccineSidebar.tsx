@@ -13,7 +13,7 @@ import {
 	SidebarRail,
 } from "@/components/ui/sidebar";
 import { LogoSection } from "@/components/sidebar/logo-section";
-
+import VersionText from "@/components/sidebar/VersionText";
 
 // This is sample data.
 const data = {
@@ -42,7 +42,7 @@ export function VaccineSidebar({
 	return (
 		<Sidebar {...props}>
 			<SidebarHeader>
-			<LogoSection/>
+				<LogoSection />
 
 				<SearchForm />
 			</SidebarHeader>
@@ -74,6 +74,7 @@ export function VaccineSidebar({
 				))}
 			</SidebarContent>
 			<SidebarRail />
+			<VersionText />
 		</Sidebar>
 	);
 }

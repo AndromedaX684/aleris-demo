@@ -14,7 +14,7 @@ export default function ChecklistDoneSection() {
 			: mockChecklists.filter((c) => c.clinic === selectedClinic);
 
 	return (
-		<Card className="h-full w-full rounded-lg shadow-md">
+		<Card className="h-full w-full rounded-lg">
 			<CardContent className="p-0">
 				<FilterSection
 					title="Aktive Sjekklister"

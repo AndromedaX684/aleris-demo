@@ -13,6 +13,7 @@ import {
 	SidebarRail,
 } from "@/components/ui/sidebar";
 import { LogoSection } from "@/components/sidebar/logo-section";
+import VersionText from "@/components/sidebar/VersionText";
 
 // This is sample data.
 const data = {
@@ -72,6 +73,7 @@ export function ChecklistSidebar({
 				))}
 			</SidebarContent>
 			<SidebarRail />
+			<VersionText />
 		</Sidebar>
 	);
 }

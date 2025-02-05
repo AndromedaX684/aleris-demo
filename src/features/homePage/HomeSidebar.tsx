@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sidebar";
 import { LogoSection } from "@/components/sidebar/logo-section";
 import { Link } from "react-router";
+import VersionText from "@/components/sidebar/VersionText";
 
 // This is sample data.
 const data = {
@@ -74,6 +75,7 @@ export function HomeSidebar({
 				))}
 			</SidebarContent>
 			<SidebarRail />
+			<VersionText />
 		</Sidebar>
 	);
 }
