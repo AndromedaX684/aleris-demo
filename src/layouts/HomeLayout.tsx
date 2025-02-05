@@ -30,7 +30,7 @@ export default function SideBar() {
 					</Breadcrumb>
 				</header>
 				{/* Main Content Area for Nested Routes */}
-				<main className="flex-1 p-4">
+				<main className="h-screen w-full overflow-auto">
 					<Outlet />
 				</main>
 			</SidebarInset>

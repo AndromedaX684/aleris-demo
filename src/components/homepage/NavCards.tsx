@@ -6,7 +6,7 @@ export default function NavCards() {
 	return (
 		<div className="flex flex-wrap gap-6 justify-center">
 			<Link to="/sjekklister">
-				<Card className="w-72 p-6 shadow-lg transition">
+				<Card className="w-64 shadow-lg transition">
 					<CardHeader>
 						<CardTitle>Sjekklister</CardTitle>
 					</CardHeader>
@@ -20,7 +20,7 @@ export default function NavCards() {
 			</Link>
 
 			<Link to="/vaksiner">
-				<Card className="w-72 p-6 shadow-lg transition">
+				<Card className="w-64 shadow-lg transition">
 					<CardHeader>
 						<CardTitle>Vaksiner</CardTitle>
 					</CardHeader>
