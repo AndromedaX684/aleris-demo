@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 const RootLayout = () => {
 	return (
-		<div className="min-h-[100dvh]">
+		<div className="h-[calc(var(--vh)*100)]">
 			<Outlet />
 		</div>
 	);
