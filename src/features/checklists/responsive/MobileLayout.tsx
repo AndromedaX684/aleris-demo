@@ -17,7 +17,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 	setActiveTab,
 }) => {
 	return (
-		<div className="flex flex-col min-h-screen bg-gray-50 pb-16">
+		<div className="flex flex-col min-h-screen mt-16 bg-gray-50 pb-16">
 			<div className="flex-1 overflow-auto scrollbar-hidden">
 				<AnimatePresence mode="wait">
 					{activeTab === "active" && (
