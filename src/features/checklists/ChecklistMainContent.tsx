@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import MobileLayout from "@/components/responsive/MobileLayout";
-import DesktopLayout from "@/components/responsive/DesktopLayout";
+import MobileLayout from "@/features/checklists/responsive/MobileLayout";
+import DesktopLayout from "@/features/checklists/responsive/DesktopLayout";
 
 const MainChecklistPage: React.FC = () => {
 	const [activeTab, setActiveTab] = useState<

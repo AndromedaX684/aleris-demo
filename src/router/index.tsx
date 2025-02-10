@@ -3,7 +3,7 @@ import App from "@/app/App";
 import HomePage from "@/pages/HomePage";
 import Vaksine from "@/pages/Vaksine";
 import { ChecklistDetail } from "@/features/checklists/ChecklistDetail";
-import ResponsiveLayout from "@/components/responsive/ResponsiveLayout";
+import ResponsiveLayout from "@/features/checklists/responsive/ResponsiveLayout";
 
 // Layouts
 import RootLayout from "@/layouts/RootLayout";
