@@ -40,7 +40,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 					className={`flex flex-col items-center justify-center p-2 w-1/3 transition-all
             ${
 							activeTab === btn.tab
-								? "text-blue-600 font-bold scale-110"
+								? "text-accent font-bold scale-110"
 								: "text-gray-500 hover:text-gray-700"
 						}`}
 					aria-label={`Switch to ${btn.label} tab`}

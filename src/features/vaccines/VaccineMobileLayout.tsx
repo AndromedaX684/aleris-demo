@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,13 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 }) => {
 	const chatRef = useRef<HTMLDivElement>(null);
 
+	const navigate = useNavigate();
+
+	const handleClick = () => {
+		// Navigate to the "/about" page
+		navigate("/hjem");
+	};
+
 	// ✅ Auto-scroll to the latest message
 	useEffect(() => {
 		if (chatRef.current) {
@@ -57,7 +65,12 @@ const VaccineMobileLayout: React.FC<VaccineLayoutProps> = ({
 	return (
 		<div className="flex flex-col h-screen">
 			{/* 🔍 Search Bar */}
-			<div className="p-4 sticky top-0 bg-white z-10 shadow-md">
+			<div className="flex flex-row p-4 sticky top-0 bg-white z-10 shadow-md">
+				<div className="flex items-center gap-2">
+					<Button variant="ghost" size="icon" onClick={handleClick}>
+						<ArrowLeft className="h-4 w-4" />
+					</Button>
+				</div>
 				<Input
 					placeholder="Søk på vaksiner..."
 					className="w-full text-[16px]"
