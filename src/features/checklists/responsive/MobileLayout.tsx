@@ -1,4 +1,5 @@
 import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MobileBottomNav from "./MobileBottomNav";
 import ChecklistOverviewSection from "@/features/checklists/ChecklistOverviewSection";
 import ChecklistDoneSection from "@/features/checklists/ChecklistDoneSection";
@@ -17,8 +18,8 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 	setActiveTab,
 }) => {
 	return (
-		<div className="flex flex-col min-h-screen mt-16 bg-gray-50 pb-16">
-			<div className="flex-1 overflow-auto scrollbar-hidden">
+		<div className="my-16">
+			<div className="scrollbar-hidden p-2">
 				<AnimatePresence mode="wait">
 					{activeTab === "active" && (
 						<motion.div
@@ -26,10 +27,24 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="flex flex-col gap-2 bg-white shadow rounded-lg p-2"
+							className=""
 						>
-							<ChecklistActive />
-							<ChecklistOverviewSection />
+							<Tabs defaultValue="aktive" className="">
+								<TabsList className="flex">
+									<TabsTrigger value="aktive" className="flex-1">
+										Aktive
+									</TabsTrigger>
+									<TabsTrigger value="alle" className="flex-1">
+										Alle
+									</TabsTrigger>
+								</TabsList>
+								<TabsContent value="aktive">
+									<ChecklistActive />
+								</TabsContent>
+								<TabsContent value="alle">
+									<ChecklistOverviewSection />
+								</TabsContent>
+							</Tabs>
 						</motion.div>
 					)}
 					{activeTab === "history" && (
@@ -38,7 +53,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="bg-white shadow rounded-lg p-2"
+							className=""
 						>
 							<ChecklistDoneSection />
 						</motion.div>
@@ -49,7 +64,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 							initial={{ opacity: 0, x: 100 }}
 							animate={{ opacity: 1, x: 0 }}
 							exit={{ opacity: 0, x: -100 }}
-							className="bg-white shadow rounded-lg p-2"
+							className=""
 						>
 							<AnalyticsDashboard />
 						</motion.div>

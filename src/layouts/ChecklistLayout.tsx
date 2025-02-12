@@ -28,7 +28,7 @@ const ChecklistLayout = () => {
 		<SidebarProvider>
 			<ChecklistSidebar />
 			<SidebarInset>
-				<header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 sticky top-0 z-10 bg-inherit">
+				<header className="bg-background flex shrink-0 items-center gap-2 border-b fixed inset-x-0 top-0 isolate z-20 h-16 px-4 md:sticky md:top-0 md:border-b md:bg-background">
 					<div className="flex items-center gap-2">
 						<SidebarTrigger className="-ml-1" />
 						<Separator orientation="vertical" className="mr-2 h-4" />
@@ -65,7 +65,7 @@ const ChecklistLayout = () => {
 						/>
 					</div>
 				</header>
-				<main className="flex-1 flex flex-col overflow-auto">
+				<main className="overflow-auto">
 					<Outlet />
 				</main>
 			</SidebarInset>

@@ -19,7 +19,7 @@ export default function SideBar() {
 		<SidebarProvider>
 			<HomeSidebar />
 			<SidebarInset>
-				<header className="bg-background flex shrink-0 items-center gap-2 border-b fixed inset-x-0 top-0 isolate z-10 h-16 px-4 md:sticky md:top-0 md:border-b md:bg-background">
+				<header className="bg-background flex shrink-0 items-center gap-2 border-b fixed inset-x-0 top-0 isolate z-100 h-16 px-4 md:sticky md:top-0 md:border-b md:bg-background">
 					<SidebarTrigger className="-ml-1" />
 					<Separator orientation="vertical" className="mr-2 h-4" />
 					<Breadcrumb>
@@ -39,7 +39,7 @@ export default function SideBar() {
 					</div>
 				</header>
 				{/* Main Content Area for Nested Routes */}
-				<main className="h-screen w-full overflow-auto">
+				<main>
 					<Outlet />
 				</main>
 			</SidebarInset>

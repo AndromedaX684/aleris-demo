@@ -14,7 +14,7 @@ export default function ChecklistDoneSection() {
 			: mockChecklists.filter((c) => c.clinic === selectedClinic);
 
 	return (
-		<Card className="h-full w-full rounded-lg">
+		<Card>
 			<CardContent className="p-0">
 				<FilterSection
 					title="Aktive Sjekklister"
@@ -24,7 +24,6 @@ export default function ChecklistDoneSection() {
 				/>
 
 				<div className="flex-1 min-h-0 overflow-auto">
-					{/* Mobile horizontal scroll container */}
 					<div className="flex gap-4 p-4 overflow-x-auto snap-x snap-mandatory">
 						{filteredChecklists
 							.filter((c) => c.status === "aktiv")

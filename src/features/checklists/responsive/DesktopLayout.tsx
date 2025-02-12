@@ -6,7 +6,7 @@ import ChecklistActive from "@/features/checklists/ChecklistActive";
 
 const DesktopLayout: React.FC = () => {
 	return (
-		<div className="flex flex-col h-screen p-4">
+		<div className="flex flex-col h-screen">
 			{/* Analytics Section */}
 			<AnalyticsDashboard />
 

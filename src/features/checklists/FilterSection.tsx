@@ -18,7 +18,7 @@ export function FilterSection({
 }: FilterSectionProps) {
 	return (
 		<div className="sticky top-0 bg-white z-10 px-6 pt-6 rounded-lg">
-			<div className="">
+			<div>
 				{title && (
 					<div className="flex items-center justify-between mb-2">
 						{" "}
