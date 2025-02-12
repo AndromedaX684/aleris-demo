@@ -18,7 +18,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({
 	setActiveTab,
 }) => {
 	return (
-		<div className="my-16">
+		<div className="mt-16 mb-32">
 			<div className="scrollbar-hidden p-2">
 				<AnimatePresence mode="wait">
 					{activeTab === "active" && (

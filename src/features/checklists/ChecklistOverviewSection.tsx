@@ -29,7 +29,7 @@ export default function ChecklistOverviewSection() {
 					}
 				/>
 
-				<div className="flex-1 min-h-0 overflow-auto">
+				<div className="flex-1 min-h-0">
 					<div className="flex flex-col gap-4 p-4">
 						{filteredChecklists.map((checklist) => (
 							<Link to={`/sjekklister/${checklist.id}`} key={checklist.id}>

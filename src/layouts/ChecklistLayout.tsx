@@ -65,7 +65,7 @@ const ChecklistLayout = () => {
 						/>
 					</div>
 				</header>
-				<main className="overflow-auto">
+				<main className="overflow-hidden md:overflow-auto">
 					<Outlet />
 				</main>
 			</SidebarInset>
